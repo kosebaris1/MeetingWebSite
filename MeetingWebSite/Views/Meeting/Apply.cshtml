@@ -1,0 +1,40 @@
+﻿@model UserInfo
+@{
+    ViewBag.Title = "Başvuru Formu";
+    Layout = "_Layout2";
+}
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 rounded-4" style="max-width: 500px; width: 100%;">
+        <h1 class="h4 text-center text-primary fw-bold">Toplantı Katılım Formu</h1>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="mb-3">
+                <label asp-for="Name" class="form-label fw-semibold"><i class="bi bi-person-fill"></i> Ad Soyad:</label>
+                <input asp-for="Name" class="form-control rounded-3 shadow-sm" placeholder="Adınızı ve Soyadınızı giriniz" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Phone" class="form-label fw-semibold"><i class="bi bi-telephone-fill"></i> Telefon:</label>
+                <input asp-for="Phone" class="form-control rounded-3 shadow-sm" placeholder="Telefon numaranızı giriniz" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label fw-semibold"><i class="bi bi-envelope-fill"></i> Mail Adresi:</label>
+                <input asp-for="Email" class="form-control rounded-3 shadow-sm" placeholder="E-posta adresinizi giriniz" />
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="WillAttend" class="form-label fw-semibold"><i class="bi bi-check-circle-fill"></i> Katılım Durumu:</label>
+                <select asp-for="WillAttend" class="form-select rounded-3 shadow-sm">
+                    <option value="true">Evet, geliyorum</option>
+                    <option value="false">Hayır, gelmiyorum</option>
+                </select>
+            </div>
+
+            <button class="btn btn-primary w-100 fw-semibold rounded-3 shadow-sm" type="submit">
+                <i class="bi bi-save"></i> Kaydet
+            </button>
+        </form>
+    </div>
+</div>

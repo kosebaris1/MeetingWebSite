@@ -1,0 +1,31 @@
+﻿@model UserInfo
+@{
+    ViewBag.Title = "Başvuru Durumu";
+}
+<main class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4 rounded-4 text-center" style="max-width: 500px; width: 100%;">
+        <h1 class="h4 text-primary fw-bold">Başvuru Durumu</h1>
+
+        @if (Model.WillAttend == true)
+        {
+            <div class="alert alert-success rounded-3 p-3">
+                <i class="bi bi-check-circle-fill text-success fs-3"></i>
+                <p class="fw-semibold">Teşekkürler, <strong>@Model.Name</strong>! 🎉</p>
+                <p>Toplantıya sizlerle birlikte <strong>@ViewBag.UserCount</strong> kişi katılıyor.</p>
+            </div>
+            <a class="btn btn-success w-100 fw-semibold rounded-3 shadow-sm" asp-controller="Meeting" asp-action="List">
+                <i class="bi bi-people-fill"></i> Katılımcıları Listele
+            </a>
+        }
+        else
+        {
+            <div class="alert alert-danger rounded-3 p-3">
+                <i class="bi bi-x-circle-fill text-danger fs-3"></i>
+                <p class="fw-semibold"><strong>@Model.Name</strong>, katılmadığınızdan dolayı üzgünüz 😞</p>
+            </div>
+            <a class="btn btn-primary w-100 fw-semibold rounded-3 shadow-sm" asp-controller="Meeting" asp-action="Apply">
+                <i class="bi bi-arrow-left-circle"></i> Başvuru Formu
+            </a>
+        }
+    </div>
+</main>

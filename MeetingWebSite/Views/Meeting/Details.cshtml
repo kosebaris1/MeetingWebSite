@@ -1,0 +1,28 @@
+﻿@model UserInfo
+@{
+    ViewBag.Title = "Başvuru Detayı";
+    var className = Model.WillAttend ? "success" : "danger";
+    var icon = Model.WillAttend ? "bi bi-check-circle-fill" : "bi bi-x-circle-fill";
+    var message = Model.WillAttend ? "Katılıyor" : "Katılmıyor";
+}
+
+<main class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg rounded-4 p-4 text-center" style="max-width: 500px; width: 100%;">
+        <h1 class="h4 text-primary fw-bold">
+            <i class="bi bi-file-earmark-person-fill"></i> Başvuru Detayı
+        </h1>
+        <p class="mt-3">
+            <span class="badge bg-@className p-2 fs-6">
+                <i class="@icon"></i> @message
+            </span>
+        </p>
+        <div class="mt-3 text-start">
+            <p><i class="bi bi-person-circle text-secondary"></i> <strong>İsim:</strong> @Model.Name</p>
+            <p><i class="bi bi-envelope-fill text-secondary"></i> <strong>Email:</strong> @Model.Email</p>
+            <p><i class="bi bi-telephone-fill text-secondary"></i> <strong>Telefon:</strong> @Model.Phone</p>
+        </div>
+        <a asp-controller="Meeting" asp-action="List" class="btn btn-outline-@className w-100 mt-3 fw-semibold">
+            <i class="bi bi-people-fill"></i> Katılımcı Listesi
+        </a>
+    </div>
+</main>

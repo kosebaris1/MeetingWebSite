@@ -1,0 +1,21 @@
+﻿@model MeetingInfo
+@{
+    ViewBag.Title = "Toplantı Başvuru";
+}
+<main class="d-flex flex-column align-items-center justify-content-center vh-100">
+    <div class="card shadow-lg border-0 rounded-3 p-4 text-center" style="max-width: 400px; width: 100%;">
+        <h1 class="h4 text-primary fw-bold">@ViewBag.Sonuc</h1>
+        <p class="text-muted">Toplantıya katılım durumunuzu bildiriniz</p>
+        <div class="card-body bg-light rounded-3 p-3">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item fw-bold"><i class="bi bi-geo-alt-fill text-danger"></i> @Model.Location</li>
+                <li class="list-group-item fw-bold"><i class="bi bi-calendar-event text-success"></i> @Model.Date.ToString("dd/MM/yyyy HH:mm:ss")</li>
+                <li class="list-group-item fw-bold"><i class="bi bi-people-fill text-info"></i> @Model.NumberOfPeople Katılımcı</li>
+            </ul>
+        </div>
+        <a class="btn btn-primary mt-3 w-100 fw-semibold" asp-controller="Meeting" asp-action="Apply">
+            <i class="bi bi-check-circle"></i> Başvuru Yap
+        </a>
+    </div>
+</main>
+
